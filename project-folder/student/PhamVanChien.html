@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phạm Văn Chiến - Portfolio</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background: linear-gradient(135deg, #0062E6, #33AEFF);
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid #2c3e50;
+    margin-bottom: 20px;
+    object-fit: cover;
+    background-color: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.profile-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-initial {
+    font-size: 64px;
+    color: #0062E6;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.section {
+    padding: 60px 0;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #0062E6;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 4px;
+    background-color: #0062E6;
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.info-list {
+    flex: 1;
+    min-width: 300px;
+}
+
+.info-item {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.info-title {
+    font-weight: bold;
+    min-width: 120px;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.skill-category {
+    flex: 1;
+    min-width: 250px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.skill-category h3 {
+    color: #0062E6;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.skill-item {
+    margin-bottom: 15px;
+}
+
+.skill-name {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: #0062E6;
+    border-radius: 4px;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.project-img {
+    height: 200px;
+    background-color: #eee;
+}
+
+.project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-content {
+    padding: 20px;
+}
+
+.project-title {
+    color: #0062E6;
+    margin-bottom: 10px;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.tech-tag {
+    background-color: #e9f5ff;
+    color: #0062E6;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+.contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-form {
+    flex: 1;
+    min-width: 300px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    background-color: #0062E6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.social-link:hover {
+    background-color: #004bb9;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+button {
+    background-color: #0062E6;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #004bb9;
+}
+
+footer {
+    background-color: #0062E6;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 60px;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 50px 0;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .section {
+        padding: 40px 0;
+    }
+    
+    .projects {
+        grid-template-columns: 1fr;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="profile-img">
+              <img src="../assets/images/PhamVanChien.png" alt="">
+            </div>
+            <h1>Phạm Văn Chiến</h1>
+            <p class="subtitle">Fullstack Developer | Sinh viên năm 4</p>
+        </div>
+    </header>
+    
+    <section class="section" id="about">
+        <div class="container">
+            <h2>Giới Thiệu</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Xin chào! Tôi là Phạm Văn Chiến, sinh viên năm 4 chuyên ngành Công nghệ thông tin tại trường Đại học Công nghệ Thành phố Hồ Chí Minh (HUTECH). Với niềm đam mê phát triển phần mềm, tôi đã tích lũy được nhiều kinh nghiệm trong cả Front-end và Back-end.</p>
+                    <p>Tôi luôn tìm kiếm cơ hội để áp dụng những kiến thức đã học vào các dự án thực tế, đồng thời không ngừng học hỏi công nghệ mới để nâng cao kỹ năng chuyên môn của mình.</p>
+                </div>
+                <div class="info-list">
+                    <div class="info-item">
+                        <span class="info-title">Họ tên:</span>
+                        <span>Phạm Văn Chiến</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-title">Sinh viên:</span>
+                        <span>Năm 4 - Đại học HUTECH</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-title">Chuyên ngành:</span>
+                        <span>Công nghệ thông tin</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-title">Email:</span>
+                        <span>phamvanchien@example.com</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-title">Địa chỉ:</span>
+                        <span>Thành phố Hồ Chí Minh, Việt Nam</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section" id="skills" style="background-color: #f0f7ff;">
+        <div class="container">
+            <h2>Kỹ Năng</h2>
+            <div class="skills">
+                <div class="skill-category">
+                    <h3>Front-end</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>HTML/CSS</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>JavaScript</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>React.js</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Vue.js</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Back-end</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Node.js</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>PHP/Laravel</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Java Spring Boot</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>RESTful API</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Khác</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>SQL/MongoDB</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Docker</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Git/GitHub</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>UI/UX Design</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section" id="projects">
+        <div class="container">
+            <h2>Dự Án</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="../assets/images/OKX.png" alt="HuTech Connect">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">HuTech Connect</h3>
+                        <p>Nền tảng kết nối sinh viên và doanh nghiệp, giúp tạo cơ hội thực tập và việc làm cho sinh viên HUTECH. Dự án đã kết nối thành công hơn 200 sinh viên với các doanh nghiệp trong ngành CNTT.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React.js</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Firebase</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="../assets/images/binance-logo.png" alt="SmartClass">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">SmartClass</h3>
+                        <p>Hệ thống quản lý lớp học thông minh cho phép giảng viên tạo lớp, giao bài tập, và quản lý điểm số. Sinh viên có thể nộp bài, tham gia thảo luận và nhận phản hồi trực tiếp từ giảng viên.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">Laravel</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">AWS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="../assets/images/OKX.png" alt="EcoShop">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">EcoShop</h3>
+                        <p>Sàn thương mại điện tử chuyên về các sản phẩm thân thiện với môi trường. Tích hợp nhiều tính năng như thanh toán trực tuyến, đánh giá sản phẩm, và tính toán lượng khí thải carbon được giảm thiểu.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section" id="contact" style="background-color: #f0f7ff;">
+        <div class="container">
+            <h2>Liên Hệ</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p>Nếu bạn quan tâm đến việc hợp tác hoặc có bất kỳ câu hỏi nào, đừng ngần ngại liên hệ với tôi qua các phương thức sau:</p>
+                    <div class="info-item" style="margin-top: 20px;">
+                        <span class="info-title">Email:</span>
+                        <span>phamvanchien@example.com</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-title">Điện thoại:</span>
+                        <span>(+84) 123 456 789</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-title">Địa chỉ:</span>
+                        <span>475A Điện Biên Phủ, P.25, Q.Bình Thạnh, TP.HCM</span>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link">FB</a>
+                        <a href="#" class="social-link">GH</a>
+                        <a href="#" class="social-link">LI</a>
+                        <a href="#" class="social-link">TW</a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Họ tên</label>
+                        <input type="text" id="name" placeholder="Nhập họ tên của bạn">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Nhập địa chỉ email của bạn">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Tiêu đề</label>
+                        <input type="text" id="subject" placeholder="Nhập tiêu đề">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Nội dung</label>
+                        <textarea id="message" placeholder="Nhập nội dung tin nhắn"></textarea>
+                    </div>
+                    <button type="submit">Gửi tin nhắn</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 Phạm Văn Chiến - Sinh viên HUTECH. Tất cả các quyền được bảo lưu.</p>
+        </div>
+    </footer>
+    <script>
+        // Loader animation
+window.addEventListener('load', function() {
+    const loader = document.querySelector('.loader');
+    const progress = document.querySelector('.loader-progress');
+    const loadingText = document.querySelector('.loader-text');
+    
+    let width = 0;
+    const interval = setInterval(function() {
+        width += Math.random() * 10;
+        if (width > 100) {
+            width = 100;
+            clearInterval(interval);
+            setTimeout(function() {
+                loader.style.opacity = 0;
+                setTimeout(function() {
+                    loader.style.display = 'none';
+                }, 500);
+            }, 500);
+        }
+        progress.style.width = width + '%';
+        loadingText.textContent = 'Đang tải... ' + Math.floor(width) + '%';
+    }, 200);
+});
+
+// Sticky header
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    header.classList.toggle('sticky', window.scrollY > 100);
+});
+
+// Mobile menu
+const menuBtn = document.querySelector('.menu-btn');
+const navbar = document.querySelector('.navbar');
+
+menuBtn.addEventListener('click', function() {
+    navbar.classList.toggle('active');
+    if (navbar.classList.contains('active')) {
+        menuBtn.innerHTML = '✕';
+    } else {
+        menuBtn.innerHTML = '☰';
+    }
+});
+
+// Close mobile menu when clicking on a link
+const navLinks = document.querySelectorAll('.navbar a');
+navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+        navbar.classList.remove('active');
+        menuBtn.innerHTML = '☰';
+    });
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Portfolio filtering
+const filterBtns = document.querySelectorAll('.filter-btn');
+const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+        // Remove active class from all buttons
+        filterBtns.forEach(btn => btn.classList.remove('active'));
+        // Add active class to clicked button
+        this.classList.add('active');
+        
+        const filter = this.getAttribute('data-filter');
+        
+        portfolioItems.forEach(item => {
+            if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    });
+});
+
+// Contact form submission
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+        
+        // Simple validation
+        if (!name || !email || !subject || !message) {
+            alert('Vui lòng điền đầy đủ thông tin!');
+            return;
+        }
+        
+        // Here you would typically send the form data to a server
+        // For demo purposes, we'll just show an alert
+        alert('Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi trong thời gian sớm nhất.');
+        contactForm.reset();
+    });
+}
+
+// 3D Scene with Three.js
+let scene, camera, renderer, objects = [];
+
+function initThree() {
+    // Scene setup
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    
+    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(0x000000, 0); // Transparent background
+    
+    const container = document.getElementById('canvas-container');
+    container.appendChild(renderer.domElement);
+    
+    // Lighting
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(ambientLight);
+    
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(10, 10, 10);
+    scene.add(directionalLight);
+    
+    // Add 3D objects
+    addObjects();
+    
+    // Position camera
+    camera.position.z = 5;
+    
+    // Handle window resize
+    window.addEventListener('resize', onWindowResize);
+    
+    // Start animation loop
+    animate();
+}
+
+function addObjects() {
+    // Create geometric objects to represent 3D work
+    
+    // Cube
+    const cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
+    const cubeMaterial = new THREE.MeshStandardMaterial({ 
+        color: 0x2563eb, // Primary blue color
+        metalness: 0.3,
+        roughness: 0.4
+    });
+    const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+    cube.position.set(-2, 0, 0);
+    scene.add(cube);
+    objects.push({ mesh: cube, rotationSpeed: 0.01 });
+    
+    // Sphere
+    const sphereGeometry = new THREE.SphereGeometry(0.7, 32, 32);
+    const sphereMaterial = new THREE.MeshStandardMaterial({
+        color: 0x38bdf8, // Accent blue
+        metalness: 0.3,
+        roughness: 0.4
+    });
+    const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+    sphere.position.set(0, 0, 0);
+    scene.add(sphere);
+    objects.push({ mesh: sphere, rotationSpeed: 0.01 });
+    
+    // Torus
+    const torusGeometry = new THREE.TorusGeometry(0.5, 0.2, 16, 100);
+    const torusMaterial = new THREE.MeshStandardMaterial({
+        color: 0x1e40af, // Secondary blue
+        metalness: 0.3,
+        roughness: 0.4
+    });
+    const torus = new THREE.Mesh(torusGeometry, torusMaterial);
+    torus.position.set(2, 0, 0);
+    scene.add(torus);
+    objects.push({ mesh: torus, rotationSpeed: 0.01 });
+    
+    // Create some random small cubes for background effect
+    for (let i = 0; i < 50; i++) {
+        const geometry = new THREE.BoxGeometry(0.2, 0.2, 0.2);
+        const material = new THREE.MeshStandardMaterial({
+            color: Math.random() > 0.5 ? 0x2563eb : 0x38bdf8,
+            metalness: 0.3,
+            roughness: 0.4
+        });
+        const smallCube = new THREE.Mesh(geometry, material);
+        
+        // Position randomly in background
+        smallCube.position.x = (Math.random() - 0.5) * 15;
+        smallCube.position.y = (Math.random() - 0.5) * 10;
+        smallCube.position.z = -5 - Math.random() * 10;
+        
+        scene.add(smallCube);
+        objects.push({ 
+            mesh: smallCube, 
+            rotationSpeed: 0.005 + Math.random() * 0.01,
+            floatingSpeed: 0.001 + Math.random() * 0.005,
+            floatingDirection: Math.random() * Math.PI * 2,
+            floatingDistance: 0.1 + Math.random() * 0.3
+        });
+    }
+}
+
+function onWindowResize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+}
+
+function animate() {
+    requestAnimationFrame(animate);
+    
+    // Rotate all objects
+    objects.forEach(obj => {
+        obj.mesh.rotation.x += obj.rotationSpeed;
+        obj.mesh.rotation.y += obj.rotationSpeed;
+        
+        // Add floating animation for small background cubes
+        if (obj.floatingSpeed) {
+            obj.mesh.position.y += Math.sin(Date.now() * obj.floatingSpeed) * 0.01;
+            obj.mesh.position.x += Math.cos(Date.now() * obj.floatingSpeed + obj.floatingDirection) * 0.01;
+        }
+    });
+    
+    renderer.render(scene, camera);
+}
+
+// Initialize Three.js scene when page loads
+window.addEventListener('load', initThree);
+
+// Animation on scroll
+function animateOnScroll() {
+    const elements = document.querySelectorAll('.service-card, .portfolio-item, .about-content, .about-img');
+    
+    elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+        
+        if (elementPosition < screenPosition) {
+            element.classList.add('show');
+        }
+    });
+}
+
+// Add fade-in animation styles
+const style = document.createElement('style');
+style.textContent = `
+    .service-card, .portfolio-item, .about-content, .about-img {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease;
+    }
+    
+    .show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+`;
+document.head.appendChild(style);
+
+// Initialize animation on scroll
+window.addEventListener('scroll', animateOnScroll);
+window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
