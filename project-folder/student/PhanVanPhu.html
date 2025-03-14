@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phan Văn Phú - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!--  Gợi ý: Bạn có thể thêm Font Awesome để có icon đẹp hơn  -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+</head>
+
+
+<style> 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background: linear-gradient(135deg, #0062E6, #33AEFF);
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid #2c3e50;
+    margin-bottom: 20px;
+    object-fit: cover;
+    background-color: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.profile-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-initial {
+    font-size: 64px;
+    color: #0062E6;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.section {
+    padding: 60px 0;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #0062E6;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 4px;
+    background-color: #0062E6;
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.info-list {
+    flex: 1;
+    min-width: 300px;
+}
+
+.info-item {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.info-title {
+    font-weight: bold;
+    min-width: 120px;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.skill-category {
+    flex: 1;
+    min-width: 250px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.skill-category h3 {
+    color: #0062E6;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.skill-item {
+    margin-bottom: 15px;
+}
+
+.skill-name {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: #0062E6;
+    border-radius: 4px;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.project-img {
+    height: 200px;
+    background-color: #eee;
+}
+
+.project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-content {
+    padding: 20px;
+}
+
+.project-title {
+    color: #0062E6;
+    margin-bottom: 10px;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.tech-tag {
+    background-color: #e9f5ff;
+    color: #0062E6;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+.contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-form {
+    flex: 1;
+    min-width: 300px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    background-color: #0062E6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.social-link:hover {
+    background-color: #004bb9;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+button {
+    background-color: #0062E6;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #004bb9;
+}
+
+footer {
+    background-color: #0062E6;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 60px;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 50px 0;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .section {
+        padding: 40px 0;
+    }
+    
+    .projects {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+<body>
+    <header>
+        <div class="container">
+            <div class="profile-img">
+                <img src="images/z6383136961856_f66f89bfd02219c1a8bed4cf1447eda8.jpg" alt="Phan Văn Phú">
+            </div>
+            <h1>Phan Văn Phú</h1>
+            <p class="subtitle">Back End Developer | Sinh viên năm 4</p>
+        </div>
+    </header>
+    
+    <section class="section" id="about">
+        <div class="container">
+            <h2>Giới Thiệu</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Xin chào! Tôi là Phan Văn Phú, sinh viên năm 4 chuyên ngành Công nghệ thông tin tại trường Đại học Công nghệ Thành phố Hồ Chí Minh (HUTECH). Với niềm đam mê phát triển phần mềm, tôi đã tích lũy được nhiều kinh nghiệm trong cả Front-end và Back-end.</p>
+                    <p>Tôi luôn tìm kiếm cơ hội để áp dụng những kiến thức đã học vào các dự án thực tế, đồng thời không ngừng học hỏi công nghệ mới để nâng cao kỹ năng chuyên môn của mình.</p>
+                </div>
+                <div class="info-list">
+                    <div class="info-item">
+                        <span class="info-title">Họ tên:</span>
+                        <span>Phan Văn Phú</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-title">Sinh viên:</span>
+                        <span>Năm 4 - Đại học HUTECH</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-title">Chuyên ngành:</span>
+                        <span>Công nghệ thông tin</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-title">Số điện thoại:</span>
+                        <span>0362 017 398</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-title">Email:</span>
+                        <span>phubale197@gmail.com</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-title">Địa chỉ:</span>
+                        <span>Thành phố Hồ Chí Minh, Việt Nam</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section" id="skills" style="background-color: #f0f7ff;">
+        <div class="container">
+            <h2>Kỹ Năng</h2>
+            <div class="skills">
+                <div class="skill-category">
+                    <h3>Front-end</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>HTML/CSS</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>JavaScript</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>React.js</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Vue.js</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Back-end</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Node.js</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>PHP/Laravel</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Java Spring Boot</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>RESTful API</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Khác</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>SQL/MongoDB</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Docker</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Git/GitHub</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>UI/UX Design</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section" id="projects">
+        <div class="container">
+            <h2>Dự Án</h2>
+            <div class="projects">
+                <!-- Dự án 1: Website bán giày -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="images/website_bangiay.jpg" alt="Website Bán Giày">  <!-- Thay ảnh bằng link ảnh thật -->
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Website Bán Giày</h3>
+                        <p>Xây dựng website thương mại điện tử cho phép khách hàng tìm kiếm, xem thông tin chi tiết, đặt mua và thanh toán các sản phẩm giày dép.  Tích hợp chức năng quản lý sản phẩm, đơn hàng, và khách hàng cho người quản trị.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React.js</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Express.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dự án 2: Website học tiếng Anh online -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="images/website_tienganh.png" alt="Website Học Tiếng Anh Online"> <!-- Thay ảnh bằng link ảnh thật -->
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Website Học Tiếng Anh Online</h3>
+                        <p>Phát triển nền tảng học tiếng Anh trực tuyến với các bài học, bài tập, trò chơi tương tác, và chức năng kiểm tra trình độ.  Hỗ trợ người dùng theo dõi tiến độ học tập và tương tác với cộng đồng.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">Python (Flask)</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Firebase</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dự án 3: Website quản lý nhân sự -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="images/website_qlns.png" alt="Website Quản Lý Nhân Sự"> <!-- Thay bằng ảnh thật -->
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Website Quản Lý Nhân Sự</h3>
+                        <p>Thiết kế và xây dựng hệ thống quản lý thông tin nhân viên, chấm công, tính lương, và quản lý các quy trình nhân sự khác. Cung cấp giao diện thân thiện, dễ sử dụng cho cả nhân viên và quản lý.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Angular</span>
+                            <span class="tech-tag">Java (Spring Boot)</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">AWS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="section" id="contact" style="background-color: #f0f7ff;">
+        <div class="container">
+            <h2>Liên Hệ</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p>Nếu bạn quan tâm đến việc hợp tác hoặc có bất kỳ câu hỏi nào, đừng ngần ngại liên hệ với tôi qua các phương thức sau:</p>
+                    <div class="info-item" style="margin-top: 20px;">
+                        <span class="info-title">Email:</span>
+                        <span>phubale197@gmail.com</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-title">Điện thoại:</span>
+                        <span>(+84) 362 017 398</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-title">Địa chỉ:</span>
+                        <span>Thành Phố Thủ Đức, TP.HCM</span>
+                    </div>
+                    
+                    <div class="social-links">
+                         <!--  Gợi ý:  Thay # bằng link thật, và dùng icon của Font Awesome (nếu có) -->
+                        <a href="#" class="social-link">FB</a>  <!-- <a href="https://facebook.com/..." class="social-link"><i class="fab fa-facebook"></i></a> -->
+                        <a href="#" class="social-link">GH</a>  <!-- <a href="https://github.com/..." class="social-link"><i class="fab fa-github"></i></a> -->
+                        <a href="#" class="social-link">LI</a>  <!-- <a href="https://linkedin.com/..." class="social-link"><i class="fab fa-linkedin"></i></a> -->
+                        <a href="#" class="social-link">TW</a>  <!-- <a href="https://twitter.com/..." class="social-link"><i class="fab fa-twitter"></i></a> -->
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Họ tên</label>
+                        <input type="text" id="name" placeholder="Nhập họ tên của bạn">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Nhập địa chỉ email của bạn">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Tiêu đề</label>
+                        <input type="text" id="subject" placeholder="Nhập tiêu đề">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Nội dung</label>
+                        <textarea id="message" placeholder="Nhập nội dung tin nhắn"></textarea>
+                    </div>
+                    <button type="submit">Gửi tin nhắn</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 Phan Văn Phú - Sinh viên HUTECH.  Tất cả các quyền được bảo lưu.</p>
+        </div>
+    </footer>
+</body>
+</html>
