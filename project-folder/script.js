@@ -35,8 +35,6 @@ const animateOnScroll = () => {
     });
 };
 
-//Duy JS
-
 // Run animation check on load
 window.addEventListener('load', animateOnScroll);
 
